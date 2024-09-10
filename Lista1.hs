@@ -19,7 +19,6 @@ ehPar 0 = True
 ehPar 1 = False 
 ehPar n = ehPar (n - 2)  
 
-
 somaPares n = 
     if n < 0 then 0
     else if ehPar n then n + somaPares (n - 2) 
@@ -57,14 +56,6 @@ divisao n d =
 
 -- 7) APROXIMAÇÃO DE PI
 
-seriePI n = auxSeriePI n 1 1 0.0
+seriePI n = auxPI n 1 1
 
-auxSeriePI n denom sign acc =
-    let termo = (4 / fromIntegral denom) * fromIntegral sign 
-    in if abs termo < 4 / fromIntegral n 
-       then acc 
-       else auxSeriePI n (denom + 2) (-sign) (acc + termo) 
-
--- Exemplos de testes:
--- abs (pi - seriePI 100) < 0.1
--- abs (pi - seriePI 10000) < 0.001
+auxPI n d s = if d < n then 4/d*s + auxPI n (d+2) (s*(-1)) else 0
