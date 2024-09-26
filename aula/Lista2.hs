@@ -35,13 +35,11 @@ pot 0 = 1
 pot e = 2 * pot (e - 1)
 
 -- Qustão 7
-
 intercalacao x [] = x
 intercalacao [] x = x
 intercalacao (x:xs) (y:ys) = if x < y then x : (intercalacao xs (y:ys)) else y : (intercalacao ys (x:xs))
 
 --Questão 8
-
 menor [a] = a
 menor (x:xs) = if x < (menor xs) then x else menor xs
 
@@ -66,7 +64,6 @@ repetir 0 e = []
 repetir n e = e : repetir (n-1) e
 
 --Questão 14
-
 d2c 0 = '0'
 d2c 1 = '1'
 d2c 2 = '2'
@@ -128,7 +125,6 @@ potencia _ 0 = 1
 potencia b e = b * potencia b (e - 1)  
 
 -- Questão 17
-
 c5d 0 = "0"
 c5d 1 = "1"
 c5d 2 = "10"
@@ -145,6 +141,7 @@ int2bin n = int2bin' n
 
 int2bin' 0 = ""
 int2bin' n = int2bin' (div n 2) ++ c5d (mod n 2)
+
 --Questão 18
 
 c6d 'A' = "a"
@@ -158,6 +155,21 @@ c6d 'H' = "h"
 c6d 'I' = "i"
 c6d 'J' = "j"
 c6d 'K' = "k"
+c6d 'L' = "l"
+c6d 'M' = "m"
+c6d 'N' = "n"
+c6d 'O' = "o"
+c6d 'P' = "p"
+c6d 'Q' = "q"
+c6d 'R' = "r"
+c6d 'S' = "s"
+c6d 'T' = "t"
+c6d 'U' = "u"
+c6d 'V' = "v"
+c6d 'W' = "w"
+c6d 'X' = "x"
+c6d 'Y' = "y"
+c6d 'Z' = "z"
 c6d x = [x] 
 
 minusculas [] = [] 
