@@ -70,5 +70,48 @@ numString  s = numString' 1 (invert s)
 numString' p[] = 0
 numString' p (c:cs) = p*c2d c + numString' (p*10) cs
 
+----------------------------------------------------------------------------------------
+
+--Tupla é um dado de pares ordenados
+
+-- ( True, 'A')
+-- (bool, char)
+
+-- (10, "Cristiano")
+-- (num, string)
+
+--Função para pegar o primeiro elemento de uma tupla
+primeiro (x,y) = x
+-- primeiro (x _) = x
+--fst (x _) = x (função da biblioteca)
+--é uma função polimórfica primeiro::(a,b) -> a
+
+--Função para pegar o segundo elemento de uma tupla
+segundo (x,y) = y
+--segundo (_ y) = y
+--snd (_, y) = y (Função da biblioteca)
+-------------------------------------------------------------------------------
+
+--Lista com Tupla: Nunca pode ter tuplas de tipos diferentes dentro da mesma lista; exemplo:
+
+primeiros []=[]
+primeiros ((x,y):xs) = x : primeiros xs
+-- primeiros [(1,'A'),(2,'B'),(3,'C')]
+
+primeiros' [] = []
+primeiros' (x:xs) = (primeiro x) : (primeiros xs)
+-- Usando função da biblioteca => primeiros' (x:xs) = fst x : primeiros xs
+-- mesma coisa desse => primeiros' (x:xs) = primeiro x: primeiro xs => usando a função primeiro lá de cima
+-- A operação tem precedência ao ":", ou seja, é executada antes do ":"
+
+juntar [] _ = []
+juntar _ [] = []
+juntar (x:xs)(y:ys) = (x,y) : juntar xs ys
+
+tabuada n = (tabuada' 1 n)
+
+tabuada' a n = if a <10 then (a, n, a*n) : tabuada' (a+1) n else []
+
+
 
 
